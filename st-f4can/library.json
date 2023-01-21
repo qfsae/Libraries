@@ -1,0 +1,31 @@
+{
+    "name": "st-f4can",
+    "version": "1.0.7",
+    "description": "CAN controller asbtraction for CAN1 CAN2 peripherals on the STM32F446RE Microcontroller",
+    "keywords": "CAN",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/qfsae/Libraries/st-frcan/"
+    },
+    "authors":
+    [
+      {
+        "name": "Ethan Peterson",
+        "email": "ethan@petetech.net",
+        "url": "https://portfolio.petetech.net",
+        "maintainer": true
+      },
+      {
+        "name": "Jacob Chisholm",
+        "url": "https://jchisholm204.github.io/"
+      }
+    ],
+    "license": "MIT",
+    "homepage": "https://qfsae.ca",
+    "dependencies": {
+      "qfsae-dependencies": "0.0.2"
+    },
+    "frameworks": "*",
+    "platforms": "ststm32"
+  }

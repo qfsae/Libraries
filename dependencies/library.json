@@ -1,0 +1,25 @@
+{
+    "name": "qfsae-dependencies",
+    "version": "0.0.2",
+    "description": "Dependencies used by other QFSAE libraries",
+    "keywords": "",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/qfsae/Libraries/dependencies/"
+    },
+    "authors":
+    [
+      {
+        "name": "Jacob Chisholm",
+        "url": "https://jchisholm204.github.io",
+        "maintainer": true
+      }
+    ],
+    "license": "MIT",
+    "homepage": "https://qfsae.ca/",
+    "dependencies": {
+    },
+    "frameworks": "*",
+    "platforms": "*"
+  }
