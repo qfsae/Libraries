@@ -1,6 +1,6 @@
 {
     "name": "cal",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Decodes CAN bus message data from the M150 and PDM15",
     "keywords": "CAN, MoTec, FSAE",
     "repository":
@@ -24,7 +24,6 @@
     "license": "MIT",
     "homepage": "https://qfsae.ca",
     "dependencies": {
-      "ownername/print": "~1.3.0"
     },
     "frameworks": "*",
     "platforms": "*"

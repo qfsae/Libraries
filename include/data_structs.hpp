@@ -11,18 +11,19 @@
  */
 
 #include <stdint.h>
+    
+typedef struct {
+    uint32_t id;        /* 29 bit identifier                               */
+    uint8_t  data[8];   /* Data field                                      */
+    uint8_t  len;       /* Length of data field in bytes                   */
+    uint8_t  ch;        /* Object channel(Not use)                         */
+    uint8_t  format;    /* 0 - STANDARD, 1- EXTENDED IDENTIFIER            */
+    uint8_t  type;      /* 0 - DATA FRAME, 1 - REMOTE FRAME                */
+} CAN_msg_t;
 
 namespace CAL
 {
-    typedef struct {
-        uint32_t id;        /* 29 bit identifier                               */
-        uint8_t  data[8];   /* Data field                                      */
-        uint8_t  len;       /* Length of data field in bytes                   */
-        uint8_t  ch;        /* Object channel(Not use)                         */
-        uint8_t  format;    /* 0 - STANDARD, 1- EXTENDED IDENTIFIER            */
-        uint8_t  type;      /* 0 - DATA FRAME, 1 - REMOTE FRAME                */
-    } CAN_msg_t;
-
+    
     // ECU Status Fields
     enum StatusField{
         OutputOff = 0,

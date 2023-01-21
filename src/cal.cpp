@@ -20,7 +20,7 @@ CAL::CAL::CAL(){
     dash = { CAN_ID::DASH, {0, 0}, 2, 0, 0, 0 };
 };
 
-CAL::CAN_msg_t &CAL::CAL::package(uint32_t id){
+CAN_msg_t &CAL::CAL::package(uint32_t id){
     switch (id)
     {
     case MOTEC_ID::ECU_1:
@@ -42,7 +42,7 @@ CAL::CAN_msg_t &CAL::CAL::package(uint32_t id){
     }
 }
 
-CAL::CAN_msg_t &CAL::CAL::package(const data &var){
+CAN_msg_t &CAL::CAL::package(const data &var){
     switch (var.id)
     {
     case MOTEC_ID::ECU_1:
@@ -90,7 +90,7 @@ int CAL::CAL::updatePackage(CAN_msg_t &CAN_msg){
     return 0;
 }
 
-void varToBuf(CAL::CAN_msg_t &msg, const CAL::data &CANdata, int &var){
+void varToBuf(CAN_msg_t &msg, const CAL::data &CANdata, int &var){
     switch (CANdata.dataType)
     {
     case CAL::DataType::uint8:
@@ -115,7 +115,7 @@ void varToBuf(CAL::CAN_msg_t &msg, const CAL::data &CANdata, int &var){
     }
 }
 
-void varToBuf(CAL::CAN_msg_t &msg, const CAL::data &CANdata, bool &var){
+void varToBuf(CAN_msg_t &msg, const CAL::data &CANdata, bool &var){
     switch (CANdata.dataType)
     {
     case CAL::DataType::uint8:
@@ -140,7 +140,7 @@ void varToBuf(CAL::CAN_msg_t &msg, const CAL::data &CANdata, bool &var){
     }
 }
 
-void varToBuf(CAL::CAN_msg_t &msg, const CAL::data &CANdata, float &var){
+void varToBuf(CAN_msg_t &msg, const CAL::data &CANdata, float &var){
     switch (CANdata.dataType)
     {
     case CAL::DataType::uint8:
@@ -232,7 +232,7 @@ void CAL::CAL::updateVar(const data &CANdata, bool value){
     }
 }
 
-void bufToVar(CAL::CAN_msg_t &msg, const CAL::data &CANdata, int &data){
+void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, int &data){
     switch (CANdata.dataType)
     {
     case CAL::DataType::uint8:
@@ -254,7 +254,7 @@ void bufToVar(CAL::CAN_msg_t &msg, const CAL::data &CANdata, int &data){
     }
 }
 
-void bufToVar(CAL::CAN_msg_t &msg, const CAL::data &CANdata, float &data){
+void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, float &data){
     switch (CANdata.dataType)
     {
     case CAL::DataType::uint8:
@@ -276,7 +276,7 @@ void bufToVar(CAL::CAN_msg_t &msg, const CAL::data &CANdata, float &data){
     }
 }
 
-void bufToVar(CAL::CAN_msg_t &msg, const CAL::data &CANdata, bool &data){
+void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, bool &data){
     switch (CANdata.dataType)
     {
     case CAL::DataType::uint8:
@@ -298,7 +298,7 @@ void bufToVar(CAL::CAN_msg_t &msg, const CAL::data &CANdata, bool &data){
     }
 }
 
-void bufToVar(CAL::CAN_msg_t &msg, const CAL::data &CANdata, uint8_t &data){
+void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, uint8_t &data){
     switch (CANdata.dataType)
     {
     case CAL::DataType::uint8:
