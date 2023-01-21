@@ -2,22 +2,27 @@
     "name": "cal",
     "version": "2.0.0",
     "description": "Decodes CAN bus message data from the M150 and PDM15",
-    "keywords": "CAN",
+    "keywords": "CAN, MoTec, FSAE",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/qfsae/CAL/"
+    },
     "authors":
     [
       {
         "name": "Ethan Peterson",
         "email": "ethan@petetech.net",
-        "url": "portfolio.petetech.net"
+        "url": "https://portfolio.petetech.net"
       },
       {
         "name": "Jacob Chisholm",
-        "url": "jchisholm204.github.io",
+        "url": "https://jchisholm204.github.io",
         "maintainer": true
       }
     ],
     "license": "MIT",
-    "homepage": "qfsae.ca",
+    "homepage": "https://qfsae.ca",
     "dependencies": {
       "ownername/print": "~1.3.0"
     },
