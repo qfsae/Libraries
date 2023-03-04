@@ -13,11 +13,18 @@
 
 CAL::CAL::CAL(){
     // Zero Initialize All Values
-    ecu1 = { MOTEC_ID::ECU_1, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
-    ecu2 = { MOTEC_ID::ECU_2, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
-    pdm1 = { MOTEC_ID::PDM_1, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
-    pdm2 = { MOTEC_ID::PDM_2, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
-    dash = { CAN_ID::DASH, {0, 0}, 2, 0, 0, 0 };
+    ecu1 = { MOTEC_ID::ECU_1,     {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    ecu2 = { MOTEC_ID::ECU_2,     {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    pdm1 = { MOTEC_ID::PDM_1,     {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    pdm2 = { MOTEC_ID::PDM_2,     {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    CAN0 = { MOTEC_RECV_ID::CAN0, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    CAN1 = { MOTEC_RECV_ID::CAN1, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    CAN2 = { MOTEC_RECV_ID::CAN2, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    CAN3 = { MOTEC_RECV_ID::CAN3, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    CAN4 = { MOTEC_RECV_ID::CAN4, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    CAN5 = { MOTEC_RECV_ID::CAN5, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    CAN6 = { MOTEC_RECV_ID::CAN6, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
+    CAN7 = { MOTEC_RECV_ID::CAN7, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
 };
 
 CAN_msg_t &CAL::CAL::package(uint32_t id){
@@ -35,8 +42,30 @@ CAN_msg_t &CAL::CAL::package(uint32_t id){
     case MOTEC_ID::PDM_2:
         return pdm2;
         break;
-    case CAN_ID::DASH:
-        return dash;
+    case MOTEC_RECV_ID::CAN0:
+        return CAN0;
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        return CAN1;
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        return CAN2;
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        return CAN3;
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        return CAN4;
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        return CAN5;
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        return CAN6;
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        return CAN7;
+        break;
     default:
         break;
     }
@@ -57,8 +86,31 @@ CAN_msg_t &CAL::CAL::package(const data &var){
     case MOTEC_ID::PDM_2:
         return pdm2;
         break;
-    case CAN_ID::DASH:
-        return dash;
+        break;
+    case MOTEC_RECV_ID::CAN0:
+        return CAN0;
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        return CAN1;
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        return CAN2;
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        return CAN3;
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        return CAN4;
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        return CAN5;
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        return CAN6;
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        return CAN7;
+        break;
         break;
     default:
         break;
@@ -80,8 +132,30 @@ int CAL::CAL::updatePackage(CAN_msg_t &CAN_msg){
     case MOTEC_ID::PDM_2:
         pdm2 = CAN_msg;
         break;
-    case CAN_ID::DASH:
-        dash = CAN_msg;
+    case MOTEC_RECV_ID::CAN0:
+        CAN0 = CAN_msg;
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        CAN1 = CAN_msg;
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        CAN2 = CAN_msg;
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        CAN3 = CAN_msg;
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        CAN4 = CAN_msg;
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        CAN5 = CAN_msg;
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        CAN6 = CAN_msg;
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        CAN7 = CAN_msg;
+        break;
         break;
     default:
         return 1;
@@ -180,8 +254,30 @@ void CAL::CAL::updateVar(const data &CANdata, int value){
     case MOTEC_ID::PDM_2:
         varToBuf(pdm2, CANdata, value);
         break;
-    case CAN_ID::DASH:
-        varToBuf(dash, CANdata, value);
+    case MOTEC_RECV_ID::CAN0:
+        varToBuf(CAN0, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        varToBuf(CAN1, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        varToBuf(CAN2, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        varToBuf(CAN3, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        varToBuf(CAN4, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        varToBuf(CAN5, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        varToBuf(CAN6, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        varToBuf(CAN7, CANdata, value);
+        break;
     default:
         break;
     }
@@ -203,8 +299,30 @@ void CAL::CAL::updateVar(const data &CANdata, float value){
     case MOTEC_ID::PDM_2:
         varToBuf(pdm2, CANdata, value);
         break;
-    case CAN_ID::DASH:
-        varToBuf(dash, CANdata, value);
+    case MOTEC_RECV_ID::CAN0:
+        varToBuf(CAN0, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        varToBuf(CAN1, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        varToBuf(CAN2, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        varToBuf(CAN3, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        varToBuf(CAN4, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        varToBuf(CAN5, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        varToBuf(CAN6, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        varToBuf(CAN7, CANdata, value);
+        break;
     default:
         break;
     }
@@ -225,8 +343,30 @@ void CAL::CAL::updateVar(const data &CANdata, bool value){
     case MOTEC_ID::PDM_2:
         varToBuf(pdm2, CANdata, value);
         break;
-    case CAN_ID::DASH:
-        varToBuf(dash, CANdata, value);
+    case MOTEC_RECV_ID::CAN0:
+        varToBuf(CAN0, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        varToBuf(CAN1, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        varToBuf(CAN2, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        varToBuf(CAN3, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        varToBuf(CAN4, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        varToBuf(CAN5, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        varToBuf(CAN6, CANdata, value);
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        varToBuf(CAN7, CANdata, value);
+        break;
     default:
         break;
     }
@@ -335,8 +475,30 @@ int CAL::CAL::returnVar(const data &CANdata){
         break;
     case MOTEC_ID::PDM_2:
         bufToVar(ecu1, CANdata, data);
-    case CAN_ID::DASH:
-        bufToVar(ecu1, CANdata, data);
+    case MOTEC_RECV_ID::CAN0:
+        bufToVar(CAN0, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        bufToVar(CAN1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        bufToVar(CAN2, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        bufToVar(CAN3, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        bufToVar(CAN4, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        bufToVar(CAN5, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        bufToVar(CAN6, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        bufToVar(CAN7, CANdata, data);
+        break;
     default:
         break;
     }
@@ -357,8 +519,31 @@ int CAL::CAL::returnVar(const data &CANdata, int &data){
         break;
     case MOTEC_ID::PDM_2:
         bufToVar(ecu1, CANdata, data);
-    case CAN_ID::DASH:
-        bufToVar(ecu1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN0:
+        bufToVar(CAN0, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        bufToVar(CAN1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        bufToVar(CAN2, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        bufToVar(CAN3, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        bufToVar(CAN4, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        bufToVar(CAN5, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        bufToVar(CAN6, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        bufToVar(CAN7, CANdata, data);
+        break;
     default:
         break;
     }
@@ -379,8 +564,31 @@ int CAL::CAL::returnVar(const data &CANdata, uint8_t &data){
         break;
     case MOTEC_ID::PDM_2:
         bufToVar(ecu1, CANdata, data);
-    case CAN_ID::DASH:
-        bufToVar(ecu1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN0:
+        bufToVar(CAN0, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        bufToVar(CAN1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        bufToVar(CAN2, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        bufToVar(CAN3, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        bufToVar(CAN4, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        bufToVar(CAN5, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        bufToVar(CAN6, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        bufToVar(CAN7, CANdata, data);
+        break;
     default:
         break;
     }
@@ -401,8 +609,31 @@ int CAL::CAL::returnVar(const data &CANdata, float &data){
         break;
     case MOTEC_ID::PDM_2:
         bufToVar(ecu1, CANdata, data);
-    case CAN_ID::DASH:
-        bufToVar(ecu1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN0:
+        bufToVar(CAN0, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        bufToVar(CAN1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        bufToVar(CAN2, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        bufToVar(CAN3, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        bufToVar(CAN4, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        bufToVar(CAN5, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        bufToVar(CAN6, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        bufToVar(CAN7, CANdata, data);
+        break;
     default:
         break;
     }
@@ -423,8 +654,31 @@ int CAL::CAL::returnVar(const data &CANdata, bool &data){
         break;
     case MOTEC_ID::PDM_2:
         bufToVar(ecu1, CANdata, data);
-    case CAN_ID::DASH:
-        bufToVar(ecu1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN0:
+        bufToVar(CAN0, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN1:
+        bufToVar(CAN1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN2:
+        bufToVar(CAN2, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN3:
+        bufToVar(CAN3, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN4:
+        bufToVar(CAN4, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN5:
+        bufToVar(CAN5, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN6:
+        bufToVar(CAN6, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::CAN7:
+        bufToVar(CAN7, CANdata, data);
+        break;
     default:
         break;
     }

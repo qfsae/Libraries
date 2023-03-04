@@ -28,7 +28,14 @@ namespace CAL {
         CAN_msg_t ecu2;
         CAN_msg_t pdm1;
         CAN_msg_t pdm2;
-        CAN_msg_t dash;
+        CAN_msg_t CAN0;
+        CAN_msg_t CAN1;
+        CAN_msg_t CAN2;
+        CAN_msg_t CAN3;
+        CAN_msg_t CAN4;
+        CAN_msg_t CAN5;
+        CAN_msg_t CAN6;
+        CAN_msg_t CAN7;
     public:
     /**
         * @brief Construct a new CAL object - Acts as storage for data
