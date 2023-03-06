@@ -1,6 +1,6 @@
 {
     "name": "qfsae-dependencies",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "description": "Dependencies used by other QFSAE libraries",
     "keywords": "",
     "repository":

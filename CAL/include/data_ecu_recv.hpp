@@ -19,16 +19,16 @@ namespace CAL{
      * @brief Encases all of the Data Types coming off of the ECU's CAN
      * 
      */
-    namespace DATA_ECU{
+    namespace DATA_ECU_RECV{
 
-        namespace CAN0{
+        namespace ECU_CAN0{
 
         /**
          * @brief Offset 0:
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset0 = {
-            MOTEC_RECV_ID::CAN0,
+            MOTEC_RECV_ID::ECU_CAN0,
             0,
             0xFF,
             1000,
@@ -40,7 +40,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset1 = {
-            MOTEC_RECV_ID::CAN0,
+            MOTEC_RECV_ID::ECU_CAN0,
             2,
             0xFF,
             1000,
@@ -52,7 +52,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset2 = {
-            MOTEC_RECV_ID::CAN0,
+            MOTEC_RECV_ID::ECU_CAN0,
             4,
             0xFF,
             1000,
@@ -64,23 +64,23 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset3 = {
-            MOTEC_RECV_ID::CAN0,
+            MOTEC_RECV_ID::ECU_CAN0,
             6,
             0xFF,
             1000,
             DataType::int16
         };
 
-        } // namespace CAN0
+        } // namespace ECU_CAN0
 
-        namespace CAN1{
+        namespace ECU_ECU_CAN1{
 
         /**
          * @brief Offset 0:
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset0 = {
-            MOTEC_RECV_ID::CAN1,
+            MOTEC_RECV_ID::ECU_CAN1,
             0,
             0xFF,
             1000,
@@ -92,7 +92,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset1 = {
-            MOTEC_RECV_ID::CAN1,
+            MOTEC_RECV_ID::ECU_CAN1,
             2,
             0xFF,
             1000,
@@ -104,7 +104,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset2 = {
-            MOTEC_RECV_ID::CAN1,
+            MOTEC_RECV_ID::ECU_CAN1,
             4,
             0xFF,
             1000,
@@ -116,23 +116,23 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset3 = {
-            MOTEC_RECV_ID::CAN1,
+            MOTEC_RECV_ID::ECU_CAN1,
             6,
             0xFF,
             1000,
             DataType::int16
         };
 
-        } // namespace CAN1
+        } // namespace ECU_CAN1
 
-        namespace CAN2{
+        namespace ECU_CAN2{
 
         /**
          * @brief Offset 0:
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset0 = {
-            MOTEC_RECV_ID::CAN2,
+            MOTEC_RECV_ID::ECU_CAN2,
             0,
             0xFF,
             1000,
@@ -144,7 +144,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset1 = {
-            MOTEC_RECV_ID::CAN2,
+            MOTEC_RECV_ID::ECU_CAN2,
             2,
             0xFF,
             1000,
@@ -156,7 +156,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset2 = {
-            MOTEC_RECV_ID::CAN2,
+            MOTEC_RECV_ID::ECU_CAN2,
             4,
             0xFF,
             1000,
@@ -168,23 +168,23 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset3 = {
-            MOTEC_RECV_ID::CAN2,
+            MOTEC_RECV_ID::ECU_CAN2,
             6,
             0xFF,
             1000,
             DataType::int16
         };
 
-        } // namespace CAN2
+        } // namespace ECU_CAN2
 
-        namespace CAN3{
+        namespace ECU_CAN3{
 
         /**
          * @brief Offset 0:
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset0 = {
-            MOTEC_RECV_ID::CAN3,
+            MOTEC_RECV_ID::ECU_CAN3,
             0,
             0xFF,
             1000,
@@ -196,7 +196,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset1 = {
-            MOTEC_RECV_ID::CAN3,
+            MOTEC_RECV_ID::ECU_CAN3,
             2,
             0xFF,
             1000,
@@ -208,7 +208,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset2 = {
-            MOTEC_RECV_ID::CAN3,
+            MOTEC_RECV_ID::ECU_CAN3,
             4,
             0xFF,
             1000,
@@ -220,23 +220,23 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset3 = {
-            MOTEC_RECV_ID::CAN3,
+            MOTEC_RECV_ID::ECU_CAN3,
             6,
             0xFF,
             1000,
             DataType::int16
         };
 
-        } // namespace CAN3
+        } // namespace ECU_CAN3
 
-        namespace CAN4{
+        namespace ECU_CAN4{
 
         /**
          * @brief Offset 0:
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset0 = {
-            MOTEC_RECV_ID::CAN4,
+            MOTEC_RECV_ID::ECU_CAN4,
             0,
             0xFF,
             1000,
@@ -248,7 +248,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset1 = {
-            MOTEC_RECV_ID::CAN4,
+            MOTEC_RECV_ID::ECU_CAN4,
             2,
             0xFF,
             1000,
@@ -260,7 +260,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset2 = {
-            MOTEC_RECV_ID::CAN4,
+            MOTEC_RECV_ID::ECU_CAN4,
             4,
             0xFF,
             1000,
@@ -272,23 +272,23 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset3 = {
-            MOTEC_RECV_ID::CAN4,
+            MOTEC_RECV_ID::ECU_CAN4,
             6,
             0xFF,
             1000,
             DataType::int16
         };
 
-        } // namespace CAN4
+        } // namespace ECU_CAN4
 
-        namespace CAN5{
+        namespace ECU_CAN5{
 
         /**
          * @brief Offset 0:
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset0 = {
-            MOTEC_RECV_ID::CAN5,
+            MOTEC_RECV_ID::ECU_CAN5,
             0,
             0xFF,
             1000,
@@ -300,7 +300,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset1 = {
-            MOTEC_RECV_ID::CAN5,
+            MOTEC_RECV_ID::ECU_CAN5,
             2,
             0xFF,
             1000,
@@ -312,7 +312,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset2 = {
-            MOTEC_RECV_ID::CAN5,
+            MOTEC_RECV_ID::ECU_CAN5,
             4,
             0xFF,
             1000,
@@ -324,23 +324,23 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset3 = {
-            MOTEC_RECV_ID::CAN5,
+            MOTEC_RECV_ID::ECU_CAN5,
             6,
             0xFF,
             1000,
             DataType::int16
         };
 
-        } // namespace CAN5
+        } // namespace ECU_CAN5
 
-        namespace CAN6{
+        namespace ECU_CAN6{
 
         /**
          * @brief Offset 0:
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset0 = {
-            MOTEC_RECV_ID::CAN6,
+            MOTEC_RECV_ID::ECU_CAN6,
             0,
             0xFF,
             1000,
@@ -352,7 +352,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset1 = {
-            MOTEC_RECV_ID::CAN6,
+            MOTEC_RECV_ID::ECU_CAN6,
             2,
             0xFF,
             1000,
@@ -364,7 +364,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset2 = {
-            MOTEC_RECV_ID::CAN6,
+            MOTEC_RECV_ID::ECU_CAN6,
             4,
             0xFF,
             1000,
@@ -376,23 +376,23 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset3 = {
-            MOTEC_RECV_ID::CAN6,
+            MOTEC_RECV_ID::ECU_CAN6,
             6,
             0xFF,
             1000,
             DataType::int16
         };
 
-        } // namespace CAN6
+        } // namespace ECU_CAN6
 
-        namespace CAN7{
+        namespace ECU_CAN7{
 
         /**
          * @brief Offset 0:
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset0 = {
-            MOTEC_RECV_ID::CAN7,
+            MOTEC_RECV_ID::ECU_CAN7,
             0,
             0xFF,
             1000,
@@ -404,7 +404,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset1 = {
-            MOTEC_RECV_ID::CAN7,
+            MOTEC_RECV_ID::ECU_CAN7,
             2,
             0xFF,
             1000,
@@ -416,7 +416,7 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset2 = {
-            MOTEC_RECV_ID::CAN7,
+            MOTEC_RECV_ID::ECU_CAN7,
             4,
             0xFF,
             1000,
@@ -428,15 +428,15 @@ namespace CAL{
          * Contained as unsigned 16-bit Integer
          */
         constexpr data Offset3 = {
-            MOTEC_RECV_ID::CAN7,
+            MOTEC_RECV_ID::ECU_CAN7,
             6,
             0xFF,
             1000,
             DataType::int16
         };
 
-        } // namespace CAN7
+        } // namespace ECU_CAN7
 
-    } // namespace DATA_ECU
+    } // namespace DATA_ECU_RECV
 
 }
