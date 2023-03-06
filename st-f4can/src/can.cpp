@@ -103,7 +103,7 @@ void CANSetFilter(uint8_t index, uint8_t scale, uint8_t mode, uint8_t fifo, uint
 }
 
 
-bool CANInit(BITRATE bitrate, int _CAN1, int _CAN2)
+bool CANInit(BITRATE bitrate, int _CAN1, int _CAN2, bool automaticRetransmission)
 {
   // Reference manual
   // https://www.st.com/content/ccc/resource/technical/document/reference_manual/4d/ed/bc/89/b5/70/40/dc/DM00135183.pdf/files/DM00135183.pdf/jcr:content/translations/en.DM00135183.pdf
@@ -157,12 +157,14 @@ bool CANInit(BITRATE bitrate, int _CAN1, int _CAN2)
   CAN2->MCR |= 0x1UL;                    // Require CAN2 to Initialization mode
   while (!(CAN2->MSR & 0x1UL));          // Wait for Initialization mode
   //printRegister("CAN2->MCR=", CAN2->MCR);
-
-  //CAN1->MCR = 0x51UL;                  // Hardware initialization(No automatic retransmission)
-  CAN1->MCR = 0x41UL;                    // Hardware initialization(With automatic retransmission)
-
-  //CAN2->MCR = 0x51UL;                  // Hardware initialization(No automatic retransmission)
-  CAN2->MCR = 0x41UL;                    // Hardware initialization(With automatic retransmission)
+  if(automaticRetransmission){
+    CAN1->MCR = 0x41UL;                  // Hardware initialization(With automatic retransmission)
+    CAN2->MCR = 0x41UL;                    // Hardware initialization(With automatic retransmission)
+  }
+  else{
+    CAN1->MCR = 0x51UL;                  // Hardware initialization(No automatic retransmission)
+    CAN2->MCR = 0x51UL;                  // Hardware initialization(No automatic retransmission)
+  }
 
   
   // Set bit rates 
