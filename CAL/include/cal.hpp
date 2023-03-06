@@ -10,9 +10,9 @@
  * 
  */
 #include "qfsae_structs.hpp"
-#include "data_dash.hpp"
 #include "data_ecu.hpp"
 #include "data_pdm.hpp"
+#include "data_ecu_recv.hpp"
 
 // Encase entire library within CAL namespace
 namespace CAL {
@@ -28,14 +28,14 @@ namespace CAL {
         CAN_msg_t ecu2;
         CAN_msg_t pdm1;
         CAN_msg_t pdm2;
-        CAN_msg_t CAN0;
-        CAN_msg_t CAN1;
-        CAN_msg_t CAN2;
-        CAN_msg_t CAN3;
-        CAN_msg_t CAN4;
-        CAN_msg_t CAN5;
-        CAN_msg_t CAN6;
-        CAN_msg_t CAN7;
+        CAN_msg_t ECU_CAN0;
+        CAN_msg_t ECU_CAN1;
+        CAN_msg_t ECU_CAN2;
+        CAN_msg_t ECU_CAN3;
+        CAN_msg_t ECU_CAN4;
+        CAN_msg_t ECU_CAN5;
+        CAN_msg_t ECU_CAN6;
+        CAN_msg_t ECU_CAN7;
     public:
     /**
         * @brief Construct a new CAL object - Acts as storage for data
