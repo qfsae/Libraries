@@ -69,7 +69,15 @@ namespace CAL
     } // namespace MOTEC_ID
 
     // Melanous CAN ID's
-    namespace CAN_ID{
-        static constexpr uint32_t DASH = 0x120;
+    namespace MOTEC_RECV_ID{
+        static constexpr uint32_t Base_Addr = 0x0500;
+        static constexpr uint32_t CAN0 = Base_Addr;
+        static constexpr uint32_t CAN1 = Base_Addr + 1;
+        static constexpr uint32_t CAN2 = Base_Addr + 2;
+        static constexpr uint32_t CAN3 = Base_Addr + 3;
+        static constexpr uint32_t CAN4 = Base_Addr + 4;
+        static constexpr uint32_t CAN5 = Base_Addr + 5;
+        static constexpr uint32_t CAN6 = Base_Addr + 6;
+        static constexpr uint32_t CAN7 = Base_Addr + 7;
     }
 } // namespace CAL
