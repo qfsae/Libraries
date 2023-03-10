@@ -25,7 +25,7 @@
     "license": "MIT",
     "homepage": "https://qfsae.ca",
     "dependencies": {
-      "qfsae-dependencies": "0.0.2"
+      "qfsae-dependencies": "0.0.4"
     },
     "frameworks": "*",
     "platforms": "*"
