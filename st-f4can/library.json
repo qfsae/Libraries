@@ -1,6 +1,6 @@
 {
     "name": "st-f4can",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "CAN controller asbtraction for CAN1 CAN2 peripherals on the STM32F446RE Microcontroller",
     "keywords": "CAN",
     "repository":

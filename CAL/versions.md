@@ -15,3 +15,5 @@
         - decoding looks fine
         - encoding was set up as `start_idx - 1` where it should have been `start_idx + 1`
     - `DATA_ECU` changed to `DATA_ECU_RECV` to differentiate data types
+#### 2.1.2
+ - Fix ECU1, ECU2, PDM1, PDM2 reading from ECU1
