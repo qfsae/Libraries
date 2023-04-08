@@ -75,8 +75,10 @@ extern void CANSetFilter(uint8_t index, uint8_t scale, uint8_t mode, uint8_t fif
  * 
  *                    =3: CAN2_RX mapped to PB12, CAN2_TX mapped to PB13
  *
+ * @param automaticRetransmission - allow automatic retransmission to be disabled
+ * 
  */
-extern bool CANInit(BITRATE bitrate, int _CAN1, int _CAN2);
+extern bool CANInit(BITRATE bitrate, int _CAN1, int _CAN2, bool automaticRetransmission = true);
 
 /**
  * Decodes CAN messages from the data registers and populates a 
