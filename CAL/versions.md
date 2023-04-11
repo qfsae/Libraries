@@ -17,3 +17,6 @@
     - `DATA_ECU` changed to `DATA_ECU_RECV` to differentiate data types
 #### 2.1.2
  - Fix ECU1, ECU2, PDM1, PDM2 reading from ECU1
+
+#### 2.1.3
+ - Removed Throttle Body Current, Replaced with Gear Position Voltage

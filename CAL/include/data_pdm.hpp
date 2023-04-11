@@ -94,11 +94,12 @@ namespace CAL
         };
 
         /**
-         * @brief Throttle Body Current:
+         * @brief Gear Position Voltage:
          * Contained as a Float,
          * Accessed at: ID 0x7F0 | Byte 6 | Mask 0xFF
+         * See M1 Tune for decoding into gear position
          */
-        constexpr data ThrottleBodyCurrent = {
+        constexpr data GearPositionVoltage = {
             MOTEC_ID::PDM_1,
             6,
             0xFF,
