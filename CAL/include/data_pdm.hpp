@@ -20,16 +20,16 @@ namespace CAL
     namespace DATA_PDM
     {
         /**
-         * @brief Throttle Potentiometer Voltage:
-         * Contained as a Float,
-         * Accessed at: ID 0x7F0 | Byte 0 | Mask 0xFF
+         * @brief Starter Relay Status
+         * Contained as a PDMStatus,
+         * Accessed at: ID 0x7F0 | Byte 0
          */
-        constexpr data ThrottlePotentiometerVoltage = {
+        constexpr data StarterStatus = {
             MOTEC_ID::PDM_1,
             0,
             0xFF,
-            0.2,
-            DataType::Float
+            0,
+            DataType::PDMStatus
         };
 
         /**
@@ -71,14 +71,18 @@ namespace CAL
             DataType::Float
         };
 
-        // constexpr data FuelPumpStatus = {
-        //     MOTEC_ID::PDM_1,
-        //     4,
-        //     0xFF,
-        //     0.2,
-        //     DataType::Float
-        // };
-        //FAULT FLAG
+        /**
+         * @brief Fuel Pump Status:
+         * Contained as a PDMStatus,
+         * Accessed at: ID 0x7F0 | Byte 4
+         */
+        constexpr data FuelPumpStatus = {
+            MOTEC_ID::PDM_1,
+            4,
+            0xFF,
+            0,
+            DataType::PDMStatus
+        };
 
         /**
          * @brief Kill Switch Voltage:
@@ -108,92 +112,17 @@ namespace CAL
         };
 
          /**
-         * @brief Throttle Body Voltage:
+         * @brief PDM Total Current:
          * Contained as a Float,
          * Accessed at: ID 0x7F0 | Byte 7 | Mask 0xFF
          */
-        constexpr data ThrottleBodyVoltage = {
+        constexpr data Current = {
             MOTEC_ID::PDM_1,
             7,
             0xFF,
             0.2,
             DataType::Float
         };
-        //FAULT FLAGs
-        constexpr data tBStatusFault = {
-            MOTEC_ID::PDM_2,
-            0,
-            0xFF,
-            1,
-            DataType::statusField
-        };
-
-        // constexpr data  tBStatusField = {
-        //     MOTEC_ID::PDM_2,
-        //     1,
-        //     0xFF,
-        //     ,
-        //     DataType::Float
-        // };
-
-        // constexpr data cF1Status = {
-        //     MOTEC_ID::PDM_2,
-        //     2,
-        //     0xFF,
-        //     ,
-        //     DataType::Float
-        // };
-
-        // constexpr data cF2Status = {
-        //     MOTEC_ID::PDM_2,
-        //     3,
-        //     0xFF,
-        //     ,
-        //     DataType::Float
-        // };
-
-        /**
-         * @brief Fuel Injector Current:
-         * Contained as a Float,
-         * Accessed at: ID 0x7F1 | Byte 4 | Mask 0xFF
-         */
-        constexpr data FuelInjectorCurrent = {
-            MOTEC_ID::PDM_2,
-            4,
-            0xFF,
-            0.2,
-            DataType::Float
-        };
-
-        /**
-         * @brief Fuel Injector Voltage:
-         * Contained as a Float,
-         * Accessed at: ID 0x7F1 | Byte 5 | Mask 0xFF
-         */
-        constexpr data FuelInjectorVoltage = {
-            MOTEC_ID::PDM_2,
-            5,
-            0xFF,
-            0.2,
-            DataType::Float
-        };
-        //
-        //FAULT FLAG
-        // constexpr data fIStatusField = {
-        //     MOTEC_ID::PDM_2,
-        //     6,
-        //     0xFF,
-        //     ,
-        //     DataType::Float
-        // };
-
-        // constexpr data sRStatus = {
-        //     MOTEC_ID::PDM_2,
-        //     7,
-        //     0xFF,
-        //     ,
-        //     DataType::Float
-        // };
     } // namespace DATA_PDM
 
 } // namespace CAL

@@ -16,7 +16,6 @@ CAL::CAL::CAL(){
     ecu1 =     { MOTEC_ID::ECU_1,         {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
     ecu2 =     { MOTEC_ID::ECU_2,         {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
     pdm1 =     { MOTEC_ID::PDM_1,         {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
-    pdm2 =     { MOTEC_ID::PDM_2,         {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
     ECU_CAN0 = { MOTEC_RECV_ID::ECU_CAN0, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
     ECU_CAN1 = { MOTEC_RECV_ID::ECU_CAN1, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
     ECU_CAN2 = { MOTEC_RECV_ID::ECU_CAN2, {0, 0, 0, 0, 0, 0, 0, 0}, 8, 0, 0, 0 };
@@ -38,9 +37,6 @@ CAN_msg_t &CAL::CAL::package(uint32_t id){
         break;
     case MOTEC_ID::PDM_1:
         return pdm1;
-        break;
-    case MOTEC_ID::PDM_2:
-        return pdm2;
         break;
     case MOTEC_RECV_ID::ECU_CAN0:
         return ECU_CAN0;
@@ -83,10 +79,6 @@ CAN_msg_t &CAL::CAL::package(const data &var){
     case MOTEC_ID::PDM_1:
         return pdm1;
         break;
-    case MOTEC_ID::PDM_2:
-        return pdm2;
-        break;
-        break;
     case MOTEC_RECV_ID::ECU_CAN0:
         return ECU_CAN0;
         break;
@@ -128,9 +120,6 @@ int CAL::CAL::updatePackage(CAN_msg_t &CAN_msg){
         break;
     case MOTEC_ID::PDM_1:
         pdm1 = CAN_msg;
-        break;
-    case MOTEC_ID::PDM_2:
-        pdm2 = CAN_msg;
         break;
     case MOTEC_RECV_ID::ECU_CAN0:
         ECU_CAN0 = CAN_msg;
@@ -181,9 +170,6 @@ void varToBuf(CAN_msg_t &msg, const CAL::data &CANdata, int &var){
         if(var == 1) msg.data[CANdata.start_idx] |= CANdata.bitmask;
         if(var == 0) msg.data[CANdata.start_idx] &= ~CANdata.bitmask;
         break;
-    case CAL::DataType::statusField:
-        //Not Supported
-        break;
     default:
         break;
     }
@@ -205,9 +191,6 @@ void varToBuf(CAN_msg_t &msg, const CAL::data &CANdata, bool &var){
     case CAL::DataType::boolean:
         if(var == true) msg.data[CANdata.start_idx] |= CANdata.bitmask;
         if(var == false) msg.data[CANdata.start_idx] &= ~CANdata.bitmask;
-        break;
-    case CAL::DataType::statusField:
-        //Not Supported
         break;
     default:
         break;
@@ -231,9 +214,6 @@ void varToBuf(CAN_msg_t &msg, const CAL::data &CANdata, float &var){
         if(var == 1) msg.data[CANdata.start_idx] |= CANdata.bitmask;
         if(var == 0) msg.data[CANdata.start_idx] &= ~CANdata.bitmask;
         break;
-    case CAL::DataType::statusField:
-        //Not Supported
-        break;
     default:
         break;
     }
@@ -250,9 +230,6 @@ void CAL::CAL::updateVar(const data &CANdata, int value){
         break;
     case MOTEC_ID::PDM_1:
         varToBuf(pdm1, CANdata, value);
-        break;
-    case MOTEC_ID::PDM_2:
-        varToBuf(pdm2, CANdata, value);
         break;
     case MOTEC_RECV_ID::ECU_CAN0:
         varToBuf(ECU_CAN0, CANdata, value);
@@ -296,9 +273,6 @@ void CAL::CAL::updateVar(const data &CANdata, float value){
     case MOTEC_ID::PDM_1:
         varToBuf(pdm1, CANdata, value);
         break;
-    case MOTEC_ID::PDM_2:
-        varToBuf(pdm2, CANdata, value);
-        break;
     case MOTEC_RECV_ID::ECU_CAN1:
         varToBuf(ECU_CAN1, CANdata, value);
         break;
@@ -336,9 +310,6 @@ void CAL::CAL::updateVar(const data &CANdata, bool value){
         break;
     case MOTEC_ID::PDM_1:
         varToBuf(pdm1, CANdata, value);
-        break;
-    case MOTEC_ID::PDM_2:
-        varToBuf(pdm2, CANdata, value);
         break;
     case MOTEC_RECV_ID::ECU_CAN1:
         varToBuf(ECU_CAN1, CANdata, value);
@@ -381,8 +352,6 @@ void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, int &data){
     case CAL::DataType::boolean:
         data = (msg.data[CANdata.start_idx] & CANdata.bitmask) > 0;
         break;
-    case CAL::DataType::statusField:
-        data = (CAL::StatusField)(msg.data[CANdata.start_idx]);
     default:
         break;
     }
@@ -403,8 +372,6 @@ void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, float &data){
     case CAL::DataType::boolean:
         data = (msg.data[CANdata.start_idx] & CANdata.bitmask) > 0;
         break;
-    case CAL::DataType::statusField:
-        data = (CAL::StatusField)(msg.data[CANdata.start_idx]);
     default:
         break;
     }
@@ -425,8 +392,6 @@ void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, bool &data){
     case CAL::DataType::boolean:
         data = (msg.data[CANdata.start_idx] & CANdata.bitmask) > 0;
         break;
-    case CAL::DataType::statusField:
-        data = (CAL::StatusField)(msg.data[CANdata.start_idx]);
     default:
         break;
     }
@@ -447,10 +412,37 @@ void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, uint8_t &data){
     case CAL::DataType::boolean:
         data = (msg.data[CANdata.start_idx] & CANdata.bitmask) > 0;
         break;
-    case CAL::DataType::statusField:
-        data = (CAL::StatusField)(msg.data[CANdata.start_idx]);
     default:
         break;
+    }
+}
+
+void bufToVar(CAN_msg_t &msg, const CAL::data &CANdata, CAL::PDMOutputStatus &data){
+    if(CANdata.dataType == CAL::DataType::PDMStatus){
+        if(msg.data[CANdata.start_idx] & 0x01 > 0 ){
+            data.Active = true;
+        }
+        else{
+            data.Active = false;
+        }
+        if(msg.data[CANdata.start_idx] & 0x02 > 0 ){
+            data.Fault = true;
+        }
+        else{
+            data.Fault = false;
+        }
+        if(msg.data[CANdata.start_idx] & 0x04 > 0 ){
+            data.OverCurrent = true;
+        }
+        else{
+            data.OverCurrent = false;
+        }
+        if(msg.data[CANdata.start_idx] & 0x08 > 0 ){
+            data.RetriesDone = true;
+        }
+        else{
+            data.RetriesDone = false;
+        }
     }
 }
 
@@ -467,8 +459,92 @@ int CAL::CAL::returnVar(const data &CANdata){
     case MOTEC_ID::PDM_1:
         bufToVar(pdm1, CANdata, data);
         break;
-    case MOTEC_ID::PDM_2:
-        bufToVar(pdm2, CANdata, data);
+    case MOTEC_RECV_ID::ECU_CAN0:
+        bufToVar(ECU_CAN0, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN1:
+        bufToVar(ECU_CAN1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN2:
+        bufToVar(ECU_CAN2, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN3:
+        bufToVar(ECU_CAN3, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN4:
+        bufToVar(ECU_CAN4, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN5:
+        bufToVar(ECU_CAN5, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN6:
+        bufToVar(ECU_CAN6, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN7:
+        bufToVar(ECU_CAN7, CANdata, data);
+        break;
+    default:
+        break;
+    }
+    return data;
+}
+
+float CAL::CAL::returnVar_f(const data &CANdata){
+    float data;
+    switch (CANdata.id)
+    {
+    case MOTEC_ID::ECU_1:
+        bufToVar(ecu1, CANdata, data);
+        break;
+    case MOTEC_ID::ECU_2:
+        bufToVar(ecu2, CANdata, data);
+        break;
+    case MOTEC_ID::PDM_1:
+        bufToVar(pdm1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN0:
+        bufToVar(ECU_CAN0, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN1:
+        bufToVar(ECU_CAN1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN2:
+        bufToVar(ECU_CAN2, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN3:
+        bufToVar(ECU_CAN3, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN4:
+        bufToVar(ECU_CAN4, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN5:
+        bufToVar(ECU_CAN5, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN6:
+        bufToVar(ECU_CAN6, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN7:
+        bufToVar(ECU_CAN7, CANdata, data);
+        break;
+    default:
+        break;
+    }
+    return data;
+}
+
+CAL::PDMOutputStatus CAL::CAL::returnVar_os(const data &CANdata){
+    PDMOutputStatus data;
+    switch (CANdata.id)
+    {
+    case MOTEC_ID::ECU_1:
+        bufToVar(ecu1, CANdata, data);
+        break;
+    case MOTEC_ID::ECU_2:
+        bufToVar(ecu2, CANdata, data);
+        break;
+    case MOTEC_ID::PDM_1:
+        bufToVar(pdm1, CANdata, data);
+        break;
     case MOTEC_RECV_ID::ECU_CAN0:
         bufToVar(ECU_CAN0, CANdata, data);
         break;
@@ -510,9 +586,6 @@ int CAL::CAL::returnVar(const data &CANdata, int &data){
         break;
     case MOTEC_ID::PDM_1:
         bufToVar(pdm1, CANdata, data);
-        break;
-    case MOTEC_ID::PDM_2:
-        bufToVar(pdm2, CANdata, data);
         break;
     case MOTEC_RECV_ID::ECU_CAN0:
         bufToVar(ECU_CAN0, CANdata, data);
@@ -556,9 +629,6 @@ int CAL::CAL::returnVar(const data &CANdata, uint8_t &data){
     case MOTEC_ID::PDM_1:
         bufToVar(pdm1, CANdata, data);
         break;
-    case MOTEC_ID::PDM_2:
-        bufToVar(pdm2, CANdata, data);
-        break;
     case MOTEC_RECV_ID::ECU_CAN0:
         bufToVar(ECU_CAN0, CANdata, data);
         break;
@@ -600,9 +670,6 @@ int CAL::CAL::returnVar(const data &CANdata, float &data){
         break;
     case MOTEC_ID::PDM_1:
         bufToVar(pdm1, CANdata, data);
-        break;
-    case MOTEC_ID::PDM_2:
-        bufToVar(pdm2, CANdata, data);
         break;
     case MOTEC_RECV_ID::ECU_CAN0:
         bufToVar(ECU_CAN0, CANdata, data);
@@ -646,8 +713,47 @@ int CAL::CAL::returnVar(const data &CANdata, bool &data){
     case MOTEC_ID::PDM_1:
         bufToVar(pdm1, CANdata, data);
         break;
-    case MOTEC_ID::PDM_2:
-        bufToVar(pdm2, CANdata, data);
+    case MOTEC_RECV_ID::ECU_CAN0:
+        bufToVar(ECU_CAN0, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN1:
+        bufToVar(ECU_CAN1, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN2:
+        bufToVar(ECU_CAN2, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN3:
+        bufToVar(ECU_CAN3, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN4:
+        bufToVar(ECU_CAN4, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN5:
+        bufToVar(ECU_CAN5, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN6:
+        bufToVar(ECU_CAN6, CANdata, data);
+        break;
+    case MOTEC_RECV_ID::ECU_CAN7:
+        bufToVar(ECU_CAN7, CANdata, data);
+        break;
+    default:
+        break;
+    }
+    return 0;
+}
+
+int CAL::CAL::returnVar(const data &CANdata, PDMOutputStatus &data){
+    switch (CANdata.id)
+    {
+    case MOTEC_ID::ECU_1:
+        bufToVar(ecu1, CANdata, data);
+        break;
+    case MOTEC_ID::ECU_2:
+        bufToVar(ecu2, CANdata, data);
+        break;
+    case MOTEC_ID::PDM_1:
+        bufToVar(pdm1, CANdata, data);
         break;
     case MOTEC_RECV_ID::ECU_CAN0:
         bufToVar(ECU_CAN0, CANdata, data);

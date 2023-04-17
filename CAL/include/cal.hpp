@@ -27,7 +27,6 @@ namespace CAL {
         CAN_msg_t ecu1;
         CAN_msg_t ecu2;
         CAN_msg_t pdm1;
-        CAN_msg_t pdm2;
         CAN_msg_t ECU_CAN0;
         CAN_msg_t ECU_CAN1;
         CAN_msg_t ECU_CAN2;
@@ -101,6 +100,22 @@ namespace CAL {
          * @brief Get the Data currently stored for a data object
          * 
          * @param CANdata The Data object to retrieve
+         * @returns Data (ONLY WORKS WITH FLOATS)
+         */
+        float returnVar_f(const data &CANdata);
+
+        /**
+         * @brief Get the Data currently stored for a data object
+         * 
+         * @param CANdata The Data object to retrieve
+         * @returns Data (ONLY WORKS WITH PDMOutputStatus DATA TYPES)
+         */
+        PDMOutputStatus returnVar_os(const data &CANdata);
+
+        /**
+         * @brief Get the Data currently stored for a data object
+         * 
+         * @param CANdata The Data object to retrieve
          * @param data return by reference
          */
         int returnVar(const data &CANdata, int &data);
@@ -128,6 +143,14 @@ namespace CAL {
          * @param data return by reference
          */
         int returnVar(const data &CANdata, bool &data);    
+
+        /**
+         * @brief Get the Data currently stored for a data object
+         * 
+         * @param CANdata The Data object to retrieve
+         * @param data return by reference
+         */
+        int returnVar(const data &CANdata, PDMOutputStatus &data);
     };    
 
 } // namespace CAL
