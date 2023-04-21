@@ -27,6 +27,7 @@ namespace CAL {
         CAN_msg_t ecu1;
         CAN_msg_t ecu2;
         CAN_msg_t pdm1;
+        CAN_msg_t pdm2;
         CAN_msg_t ECU_CAN0;
         CAN_msg_t ECU_CAN1;
         CAN_msg_t ECU_CAN2;

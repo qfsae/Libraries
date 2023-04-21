@@ -21,7 +21,7 @@
 #### 2.1.3
  - Removed Throttle Body Current, Replaced with Gear Position Voltage
 #### 2.1.4
- - Removed PDM CAN message 2
  - Added Starter relay status and PDM total current
  - reworked most of PDM config
  - reworked PDM `status` messages
+ - PDM2 CAN message is now entirely output statuses that can be sent at a low refresh rate

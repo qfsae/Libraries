@@ -64,6 +64,7 @@ namespace CAL
         static constexpr uint32_t ECU_1 = 0x118;
         static constexpr uint32_t ECU_2 = 0x119;
         static constexpr uint32_t PDM_1 = 0x7F0;
+        static constexpr uint32_t PDM_2 = 0x7F1;
     } // namespace MOTEC_ID
 
     // Melanous CAN ID's

@@ -123,6 +123,85 @@ namespace CAL
             0.2,
             DataType::Float
         };
+
+        /**
+         * @brief Brake Light Status:
+         * Contained as a PDMStatus,
+         * Accessed at: ID 0x7F1 | Byte 1
+         */
+        constexpr data BrakeLightStatus = {
+            MOTEC_ID::PDM_2,
+            1,
+            0xFF,
+            0,
+            DataType::PDMStatus
+        };
+
+        /**
+         * @brief SteeringPower Status:
+         * Contained as a PDMStatus,
+         * Accessed at: ID 0x7F1 | Byte 2
+         */
+        constexpr data SteeringPowerStatus = {
+            MOTEC_ID::PDM_2,
+            2,
+            0xFF,
+            0,
+            DataType::PDMStatus
+        };
+
+        /**
+         * @brief Fuel Injector Status:
+         * Contained as a PDMStatus,
+         * Accessed at: ID 0x7F1 | Byte 3
+         */
+        constexpr data FuelInjectorStatus = {
+            MOTEC_ID::PDM_2,
+            3,
+            0xFF,
+            0,
+            DataType::PDMStatus
+        };
+
+        /**
+         * @brief Transponder Status:
+         * Contained as a PDMStatus,
+         * Accessed at: ID 0x7F1 | Byte 4
+         */
+        constexpr data TransponderStatus = {
+            MOTEC_ID::PDM_2,
+            4,
+            0xFF,
+            0,
+            DataType::PDMStatus
+        };
+
+        /**
+         * @brief Cooling Fan Status:
+         * Contained as a PDMStatus,
+         * Accessed at: ID 0x7F1 | Byte 5
+         */
+        constexpr data CoolingFanStatus = {
+            MOTEC_ID::PDM_2,
+            5,
+            0xFF,
+            0,
+            DataType::PDMStatus
+        };
+
+        /**
+         * @brief Data Logger Power Status:
+         * Contained as a PDMStatus,
+         * Accessed at: ID 0x7F1 | Byte 6
+         */
+        constexpr data DataLoggerStatus = {
+            MOTEC_ID::PDM_2,
+            6,
+            0xFF,
+            0,
+            DataType::PDMStatus
+        };
+
     } // namespace DATA_PDM
 
 } // namespace CAL
